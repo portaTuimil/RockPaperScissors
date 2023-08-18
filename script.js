@@ -12,6 +12,7 @@ function getComputerChoice (max){
 
 let computerPoints = 0
 let playerPoints = 0
+let log = '';
 
 function playRound(computerSelection, playerSelection){
 
@@ -25,31 +26,31 @@ function playRound(computerSelection, playerSelection){
 
     
     if (computerSelection === playerSelection){
-        alert(`El ordenador escogió ${computerSelection}, empatas.\n`)
+        log += `\n El ordenador escogió ${computerSelection}, empatas.\n`
     } else if (computerSelection === 'Tijeras' && playerSelection === 'Papel'){
         computerPoints++
-        alert(`El ordenador escogió ${computerSelection}, gana el ordenador.`)
-        alert(`Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`)
+        log += `\n El ordenador escogió ${computerSelection}, gana el ordenador.`
+        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
     } else if (computerSelection === 'Papel' && playerSelection === 'Piedra'){
         computerPoints++
-        alert(`El ordenador escogió ${computerSelection}, gana el ordenador.`)
-        alert(`Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`)
+        log += `\n El ordenador escogió ${computerSelection}, gana el ordenador.`
+        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
     } else if (computerSelection === 'Piedra' && playerSelection === 'Tijeras'){   
         computerPoints++
-        alert(`El ordenador escogió ${computerSelection}, gana el ordenador.`)
-        alert(`Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`)
+        log += `\n El ordenador escogió ${computerSelection}, gana el ordenador.`
+        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
     } else if (computerSelection === 'Tijeras' && playerSelection === 'Piedra'){
         playerPoints++
-        alert(`El ordenador escogió ${computerSelection}, tú ganas.`)
-        alert(`Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`)
+        log += `\n El ordenador escogió ${computerSelection}, tú ganas.`
+        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
     } else if (computerSelection === 'Papel' && playerSelection === 'Tijeras'){
         playerPoints++
-        alert(`El ordenador escogió ${computerSelection}, tú ganas.`)
-        alert(`Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`)
+        log += `\n El ordenador escogió ${computerSelection}, tú ganas.`
+        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
     } else if (computerSelection === 'Piedra' && playerSelection === 'Papel'){
         playerPoints++
-        alert(`El ordenador escogió ${computerSelection}, tú ganas.`)
-        alert(`Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`)
+        log += `\n El ordenador escogió ${computerSelection}, tú ganas.`
+        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
     } 
 
     //Contador:
@@ -57,7 +58,11 @@ function playRound(computerSelection, playerSelection){
         let ganador = computerPoints > playerPoints ? 'GANA EL ORDENADOR!!!':'TÚ GANAS!!!';
         computerPoints = 0;
         playerPoints = 0;
-        alert(ganador)
+        log += `\n ${ganador}\n`
     }
 
+    let display = document.querySelector('.logs');
+    let numberLines = display.offsetHeight/ parseInt(getComputedStyle(display).fontSize, 10)/1.29;
+    let logs = log.split("\n").slice(-numberLines)
+    display.textContent = logs.join('\n');
 }

@@ -3,37 +3,45 @@
 <head>
 	<title>Rock Paper Scissors</title>
 	<link rel="stylesheet" type="text/css" href="estilo.css">
-	<script src="script.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta charset="UTF-8">
+	<link rel="icon" href="scissorIcon.png">
+	<meta name="description" content="The Rock, Paper and Scissors project from The Odin Project">
+	<meta name="author" content="Pablo Porta">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 
 
 <div class = "div-title">
-	<h1 id = "h1">¡Bienvenido a Piedra Papel o Tijeras!</h1>
-	<p id = "intro-p"> Selecciones una de las siguientes opciones:</p>
+	<h1 id = "h1">Rock, Paper or Scissors:</h1>
 </div>
 
 
 <div class = "container">
-
-<div id = "div-piedra">
-	<p>Piedra:</p>
-	<button class="btn" onclick="playRound('','Piedra')"> <img id = "piedra" src="piedra.png"> </button>
-</div>
-
-<div id = "div-papel">
-	<p>Papel:</p>
-	<button class="btn" onclick="playRound('','Papel')"> <img id = "papel" src="papel.png"> </button>
-</div>
-
-<div id = "div-tijera">
-	<p>Tijeras:</p>
-	<button class="btn" onclick="playRound('','Tijeras')"> <img id = "tijera" src="tijeras.png"> </button>
-</div>
-
-</div>
-
 	
+	<div class="options">
+		<h2 class="wrapperTitle">Select an option:</h2>
+		<div class="wrapper">
+			<div id = "div-piedra">
+				<button class="btn" onclick="playRound('','Piedra')"> <img id = "piedra" src="rock.png"> </button>
+			</div>
+
+			<div id = "div-papel">
+				<button class="btn" onclick="playRound('','Papel')"> <img id = "papel" src="paper.png"> </button>
+			</div>
+
+			<div id = "div-tijera">
+				<button class="btn" onclick="playRound('','Tijeras')"> <img id = "tijera" src="scissors.png"> </button>
+			</div>
+		</div>
+	</div>
+
+	<div class="logs"></div>
+	
+
+</div>
+
+<script src="script.js" defer></script>	
 </body>
 </html>
