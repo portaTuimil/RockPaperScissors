@@ -2,11 +2,11 @@ function getComputerChoice (max){
     let RandomNumber = Math.floor(Math.random() * max);
     
     if (RandomNumber === 0){
-        return 'Tijeras'
+        return 'Scissors'
     } else if (RandomNumber === 1){
-        return 'Papel'
+        return 'Paper'
     } else {
-        return 'Piedra'
+        return 'Rock'
     }
 }
 
@@ -17,45 +17,45 @@ let log = '';
 function playRound(computerSelection, playerSelection){
 
     computerSelection = getComputerChoice(3)
-    if (/^(Piedra|Papel|Tijeras)$/.test(playerSelection)) { // Expresiones regulares, cortesía de ChatGPT.
+    if (/^(Rock|Paper|Scissors)$/.test(playerSelection)) { // Expresiones regulares, cortesía de ChatGPT.
             
     } else{
-        alert(`Tienes que escribir 'Piedra', 'Papel' o 'Tijeras'!!!\n`)
+        alert(`You have to write 'Paper', 'Scissors' or 'Rock'!!!\n`)
         playRound('','')
     }
 
     
     if (computerSelection === playerSelection){
-        log += `\n El ordenador escogió ${computerSelection}, empatas.\n`
-    } else if (computerSelection === 'Tijeras' && playerSelection === 'Papel'){
+        log += `\n The computer chose ${computerSelection}, it's a draw.\n`
+    } else if (computerSelection === 'Scissors' && playerSelection === 'Paper'){
         computerPoints++
-        log += `\n El ordenador escogió ${computerSelection}, gana el ordenador.`
-        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
-    } else if (computerSelection === 'Papel' && playerSelection === 'Piedra'){
+        log += `\n The computer chose ${computerSelection}, the computer wins.`
+        log += `\n You: ${playerPoints} | Computer: ${computerPoints}\n`
+    } else if (computerSelection === 'Paper' && playerSelection === 'Rock'){
         computerPoints++
-        log += `\n El ordenador escogió ${computerSelection}, gana el ordenador.`
-        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
-    } else if (computerSelection === 'Piedra' && playerSelection === 'Tijeras'){   
+        log += `\n The computer chose ${computerSelection}, the computer wins.`
+        log += `\n You: ${playerPoints} | Computer: ${computerPoints}\n`
+    } else if (computerSelection === 'Rock' && playerSelection === 'Scissors'){   
         computerPoints++
-        log += `\n El ordenador escogió ${computerSelection}, gana el ordenador.`
-        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
-    } else if (computerSelection === 'Tijeras' && playerSelection === 'Piedra'){
+        log += `\n The computer chose ${computerSelection}, the computer wins.`
+        log += `\n You: ${playerPoints} | Computer: ${computerPoints}\n`
+    } else if (computerSelection === 'Scissors' && playerSelection === 'Rock'){
         playerPoints++
-        log += `\n El ordenador escogió ${computerSelection}, tú ganas.`
-        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
-    } else if (computerSelection === 'Papel' && playerSelection === 'Tijeras'){
+        log += `\n The computer chose ${computerSelection}, you win.`
+        log += `\n You: ${playerPoints} | Computer: ${computerPoints}\n`
+    } else if (computerSelection === 'Paper' && playerSelection === 'Scissors'){
         playerPoints++
-        log += `\n El ordenador escogió ${computerSelection}, tú ganas.`
-        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
-    } else if (computerSelection === 'Piedra' && playerSelection === 'Papel'){
+        log += `\n The computer chose ${computerSelection}, you win.`
+        log += `\n You: ${playerPoints} | Computer: ${computerPoints}\n`
+    } else if (computerSelection === 'Rock' && playerSelection === 'Paper'){
         playerPoints++
-        log += `\n El ordenador escogió ${computerSelection}, tú ganas.`
-        log += `\n Tú: ${playerPoints} | Ordenador: ${computerPoints}\n`
+        log += `\n The computer chose ${computerSelection}, you win.`
+        log += `\n You: ${playerPoints} | Computer: ${computerPoints}\n`
     } 
 
     //Contador:
     if(computerPoints>=5|| playerPoints>=5){
-        let ganador = computerPoints > playerPoints ? 'GANA EL ORDENADOR!!!':'TÚ GANAS!!!';
+        let ganador = computerPoints > playerPoints ? 'THE COMPUTER WINS!!!':'YOU WIN!!!';
         computerPoints = 0;
         playerPoints = 0;
         log += `\n ${ganador}\n`
